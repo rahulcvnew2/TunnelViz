@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    base: '/',
     define: {
       // Polyfill process.env.API_KEY so the @google/genai library works in the browser
       'process.env.API_KEY': JSON.stringify(env.API_KEY || ''),
@@ -17,6 +18,8 @@ export default defineConfig(({ mode }) => {
       // Ensure consistent output for Vercel
       outDir: 'dist',
       sourcemap: false,
+      // Ensure assets have correct paths
+      assetsDir: 'assets',
     },
   }
 })
